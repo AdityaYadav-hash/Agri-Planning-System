@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Agri Planning System — Smart Crop Recommendations</title>
+<meta name="description" content="Get crop recommendations based on soil, water and land. Live weather updates and a community forum for farmers."/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+<header class="navbar">
+  <div class="brand">🌾 Agri Planning System</div>
+  <nav>
+    <a href="#recommend">Recommend</a>
+    <a href="#weather">Weather</a>
+    <a href="#forum">Community</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Plan Smarter. Harvest Better.</h1>
+  <p>AI-powered crop recommendations from your soil, water, and land details.</p>
+</section>
+
+<main class="container">
+
+  <!-- Recommendation -->
+  <section id="recommend" class="card">
+    <h2>🌱 Crop Recommendation</h2>
+    <form id="recommend-form" class="grid">
+      <label>Nitrogen (N)<input type="number" name="N" value="80" required></label>
+      <label>Phosphorus (P)<input type="number" name="P" value="40" required></label>
+      <label>Potassium (K)<input type="number" name="K" value="40" required></label>
+      <label>Temperature (°C)<input type="number" step="0.1" name="temperature" value="25" required></label>
+      <label>Humidity (%)<input type="number" step="0.1" name="humidity" value="70" required></label>
+      <label>Soil pH<input type="number" step="0.1" name="ph" value="6.5" required></label>
+      <label>Rainfall (mm)<input type="number" step="0.1" name="rainfall" value="150" required></label>
+      <label>Land size (acres)<input type="number" step="0.1" name="land" value="2"></label>
+      <label>Water availability
+        <select name="water">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </label>
+      <button type="submit" class="btn btn-primary">Recommend Crops</button>
+    </form>
+    <div id="recommend-result" class="result"></div>
+  </section>
+
+  <!-- Weather -->
+  <section id="weather" class="card">
+    <h2>☀️ Weather Updates</h2>
+    <form id="weather-form" class="row">
+      <input type="text" id="city" placeholder="Enter city (e.g. Mumbai)" required>
+      <button type="submit" class="btn">Get Weather</button>
+    </form>
+    <div id="weather-result" class="result"></div>
+  </section>
+
+  <!-- Forum -->
+  <section id="forum" class="card">
+    <h2>💬 Community Forum</h2>
+    <form id="post-form" class="grid">
+      <label>Your name<input type="text" name="author" required maxlength="60"></label>
+      <label>Title<input type="text" name="title" required maxlength="120"></label>
+      <label class="full">Message<textarea name="content" rows="3" required maxlength="4000"></textarea></label>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+    <div id="posts" class="posts"></div>
+  </section>
+</main>
+
+<footer>© Agri Planning System</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
