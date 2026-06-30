@@ -1,7 +1,7 @@
 # 🌾 Agri Planning System
 
 AI-powered crop recommendation system with live weather updates and a community forum for farmers.
-
+https://agri-planning.vercel.app  
 Built with **HTML, CSS, JavaScript, and Python (Flask + scikit-learn)**.
 
 ## Features
